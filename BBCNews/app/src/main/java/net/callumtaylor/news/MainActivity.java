@@ -13,6 +13,6 @@ public class MainActivity extends Activity
 		setContentView(R.layout.main_view);
 
 		TextView text = (TextView)findViewById(R.id.text_view);
-		text.setText("Hello World!");
+		text.setText(getString(R.string.hello_world));
 	}
 }
