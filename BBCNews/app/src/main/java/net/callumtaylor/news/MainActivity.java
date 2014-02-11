@@ -9,7 +9,8 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import net.callumtaylor.controller.adapter.NameAdapter;
+import net.callumtaylor.controller.adapter.StoryAdapter;
+import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
 {
@@ -20,27 +21,15 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		setContentView(R.layout.main_view);
 
 		// simple adapter
-		String[] names = {
-			"Andrew Dong",
-			"Callum Taylor",
-			"Dan Gough",
-			"Duncan Cook",
-			"Dave Stockdale",
-			"Imogen Brickman",
-			"Martinos",
-			"Matt Cheatham",
-			"Marc Biles",
-			"Pete Josling",
-			"Phill Caudell",
-			"Sam Houghton",
-			"Simon Mitchell",
-			"Sophie Hardiman",
-			"Steve Adams",
-			"Tom Bell"
+		Story[] stories = {
+			new Story(1, "Story 1", "This is a test story"),
+			new Story(2, "Story 2", "This is a test story"),
+			new Story(3, "Story 3", "This is a test story"),
+			new Story(4, "Story 4", "This is a test story")
 		};
 
 		ListView list = (ListView)findViewById(R.id.list_view);
-		NameAdapter adapter = new NameAdapter(this, names);
+		StoryAdapter adapter = new StoryAdapter(this, stories);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
