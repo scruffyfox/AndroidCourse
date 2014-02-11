@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import net.callumtaylor.controller.adapter.NameAdapter;
 
-public class MainActivity extends Activity implements OnItemClickListener
+public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
 {
 	@Override protected void onCreate(Bundle savedInstanceState)
 	{
@@ -42,10 +43,17 @@ public class MainActivity extends Activity implements OnItemClickListener
 		NameAdapter adapter = new NameAdapter(this, names);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
+		list.setOnItemLongClickListener(this);
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
 		Toast.makeText(this, String.format("%s was clicked!", position), Toast.LENGTH_SHORT).show();
+	}
+
+	@Override public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
+	{
+		Toast.makeText(this, String.format("%s was long clicked!", position), Toast.LENGTH_SHORT).show();
+		return true;
 	}
 }
