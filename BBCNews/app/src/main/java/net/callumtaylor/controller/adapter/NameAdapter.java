@@ -1,12 +1,42 @@
 package net.callumtaylor.controller.adapter;
 
 import android.content.Context;
-import android.widget.ArrayAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 
-public class NameAdapter extends ArrayAdapter
+import net.callumtaylor.news.R;
+
+public class NameAdapter extends BaseAdapter
 {
-	public NameAdapter(Context context, Object[] objects)
+	private String[] objects;
+	private Context context;
+
+	public NameAdapter(Context context, String[] objects)
 	{
-		super(context, android.R.layout.simple_list_item_1, objects);
+		this.context = context;
+		this.objects = objects;
+	}
+
+	@Override public int getCount()
+	{
+		return objects.length;
+	}
+
+	@Override public Object getItem(int position)
+	{
+		return objects[position];
+	}
+
+	@Override public long getItemId(int position)
+	{
+		return objects[position].hashCode();
+	}
+
+	@Override public View getView(int position, View convertView, ViewGroup parent)
+	{
+		convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+		return convertView;
 	}
 }
