@@ -34,7 +34,7 @@ public class StoryAdapter extends BaseAdapter
 
 	@Override public long getItemId(int position)
 	{
-		return objects[position].id;
+		return objects[position].getId();
 	}
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
@@ -56,8 +56,8 @@ public class StoryAdapter extends BaseAdapter
 			holder = (StoryHolder)convertView.getTag();
 		}
 
-		holder.name.setText(getItem(position).title);
-		holder.summary.setText(getItem(position).summary);
+		holder.name.setText(getItem(position).getTitle());
+		holder.summary.setText(getItem(position).getSummary());
 
 		return convertView;
 	}
