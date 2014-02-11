@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import net.callumtaylor.controller.adapter.NameAdapter;
+
 public class MainActivity extends Activity
 {
 	@Override protected void onCreate(Bundle savedInstanceState)
@@ -30,7 +32,7 @@ public class MainActivity extends Activity
 		};
 
 		ListView list = (ListView)findViewById(R.id.list_view);
-		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, names);
+		NameAdapter adapter = new NameAdapter(this, names);
 		list.setAdapter(adapter);
 	}
 }
