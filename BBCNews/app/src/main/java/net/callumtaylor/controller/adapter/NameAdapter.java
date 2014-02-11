@@ -40,8 +40,9 @@ public class NameAdapter extends BaseAdapter
 		if (convertView == null)
 		{
 			convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
-			((TextView)convertView.findViewById(R.id.name)).setText(getItem(position));
 		}
+
+		((TextView)convertView.findViewById(R.id.name)).setText(getItem(position));
 
 		return convertView;
 	}
