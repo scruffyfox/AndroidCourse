@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import net.callumtaylor.news.R;
+import net.callumtaylor.view.holder.NameHolder;
 
 public class NameAdapter extends BaseAdapter
 {
@@ -37,20 +38,25 @@ public class NameAdapter extends BaseAdapter
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
 	{
-		TextView name;
+		NameHolder holder;
 
 		if (convertView == null)
 		{
 			convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
-			name = (TextView)convertView.findViewById(R.id.name);
-			convertView.setTag(name);
+
+			holder = new NameHolder();
+			holder.name = (TextView)convertView.findViewById(R.id.name);
+			holder.position = (TextView)convertView.findViewById(R.id.position);
+
+			convertView.setTag(holder);
 		}
 		else
 		{
-			name = (TextView)convertView.getTag();
+			holder = (NameHolder)convertView.getTag();
 		}
 
-		name.setText(getItem(position));
+		holder.name.setText(getItem(position));
+		holder.position.setText(String.valueOf(position));
 
 		return convertView;
 	}
