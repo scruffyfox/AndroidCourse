@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import net.callumtaylor.model.Story;
 import net.callumtaylor.news.R;
 import net.callumtaylor.view.holder.NameHolder;
 
-public class NameAdapter extends BaseAdapter
+public class StoryAdapter extends BaseAdapter
 {
-	private String[] objects;
+	private Story[] objects;
 	private Context context;
 
-	public NameAdapter(Context context, String[] objects)
+	public StoryAdapter(Context context, Story[] objects)
 	{
 		this.context = context;
 		this.objects = objects;
@@ -26,14 +27,14 @@ public class NameAdapter extends BaseAdapter
 		return objects.length;
 	}
 
-	@Override public String getItem(int position)
+	@Override public Story getItem(int position)
 	{
 		return objects[position];
 	}
 
 	@Override public long getItemId(int position)
 	{
-		return objects[position].hashCode();
+		return objects[position].id;
 	}
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
@@ -55,8 +56,8 @@ public class NameAdapter extends BaseAdapter
 			holder = (NameHolder)convertView.getTag();
 		}
 
-		holder.name.setText(getItem(position));
-		holder.position.setText(String.valueOf(position));
+		holder.name.setText(getItem(position).title);
+		holder.position.setText(String.valueOf(getItem(position).id));
 
 		return convertView;
 	}

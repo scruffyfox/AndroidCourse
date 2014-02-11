@@ -7,4 +7,11 @@ public class Story
 	public String summary;
 	public String link;
 	public long published;
+
+	public Story(int id, String title, String summary)
+	{
+		this.id = id;
+		this.title = title;
+		this.summary = summary;
+	}
 }
