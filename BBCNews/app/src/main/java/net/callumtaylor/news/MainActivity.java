@@ -22,12 +22,16 @@ public class MainActivity extends Activity
 			"Dan Gough",
 			"Duncan Cook",
 			"Dave Stockdale",
+			"Imogen Brickman",
 			"Martinos",
 			"Matt Cheatham",
+			"Marc Biles",
 			"Pete Josling",
 			"Phill Caudell",
-			"Steve Adams",
 			"Sam Houghton",
+			"Simon Mitchell",
+			"Sophie Hardiman",
+			"Steve Adams",
 			"Tom Bell"
 		};
 

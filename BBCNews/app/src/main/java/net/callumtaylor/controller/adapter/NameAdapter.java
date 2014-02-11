@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import net.callumtaylor.news.R;
 
@@ -24,7 +25,7 @@ public class NameAdapter extends BaseAdapter
 		return objects.length;
 	}
 
-	@Override public Object getItem(int position)
+	@Override public String getItem(int position)
 	{
 		return objects[position];
 	}
@@ -37,6 +38,8 @@ public class NameAdapter extends BaseAdapter
 	@Override public View getView(int position, View convertView, ViewGroup parent)
 	{
 		convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+		((TextView)convertView.findViewById(R.id.name)).setText(getItem(position));
+
 		return convertView;
 	}
 }
