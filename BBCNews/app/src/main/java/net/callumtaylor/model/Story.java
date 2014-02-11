@@ -1,6 +1,8 @@
 package net.callumtaylor.model;
 
-public class Story
+import java.io.Serializable;
+
+public class Story implements Serializable
 {
 	private int id;
 	private String title;
