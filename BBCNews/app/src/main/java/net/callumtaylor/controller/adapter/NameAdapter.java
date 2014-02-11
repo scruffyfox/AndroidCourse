@@ -37,12 +37,20 @@ public class NameAdapter extends BaseAdapter
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
 	{
+		TextView name;
+
 		if (convertView == null)
 		{
 			convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+			name = (TextView)convertView.findViewById(R.id.name);
+			convertView.setTag(name);
+		}
+		else
+		{
+			name = (TextView)convertView.getTag();
 		}
 
-		((TextView)convertView.findViewById(R.id.name)).setText(getItem(position));
+		name.setText(getItem(position));
 
 		return convertView;
 	}
