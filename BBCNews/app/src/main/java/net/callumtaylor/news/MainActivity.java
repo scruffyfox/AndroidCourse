@@ -1,6 +1,7 @@
 package net.callumtaylor.news;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,9 @@ import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
 {
+	private StoryAdapter adapter;
+	private ListView list;
+
 	@Override protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -28,8 +32,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 			new Story(4, "Story 4", "This is a test story")
 		};
 
-		ListView list = (ListView)findViewById(R.id.list_view);
-		StoryAdapter adapter = new StoryAdapter(this, stories);
+		list = (ListView)findViewById(R.id.list_view);
+		adapter = new StoryAdapter(this, stories);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
@@ -37,7 +41,11 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
-		Toast.makeText(this, String.format("%s was clicked!", position), Toast.LENGTH_SHORT).show();
+		Story story = adapter.getItem(position);
+
+		Intent storyDetails = new Intent(this, StoryActivity.class);
+		storyDetails.putExtra("story", story);
+		startActivity(storyDetails);
 	}
 
 	@Override public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
