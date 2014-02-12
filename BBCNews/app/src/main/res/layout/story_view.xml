@@ -8,7 +8,15 @@
 >
 	<TextView
 		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/title"
+		android:textStyle="bold"
+	/>
+
+	<TextView
+		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:id="@+id/summary"
+		android:layout_marginTop="5dp"
 	/>
 </LinearLayout>

@@ -18,7 +18,9 @@ public class StoryActivity extends Activity
 		{
 			Story story = (Story)getIntent().getExtras().get("story");
 
+			TextView title = (TextView)findViewById(R.id.title);
 			TextView summary = (TextView)findViewById(R.id.summary);
+			title.setText(story.getTitle());
 			summary.setText(story.getSummary());
 		}
 	}
