@@ -44,6 +44,7 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		Story story = adapter.getItem(position);
 
 		Intent storyDetails = new Intent(this, StoryActivity.class);
+		storyDetails.putExtra("story", story);
 		startActivity(storyDetails);
 	}
 
