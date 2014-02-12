@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import net.callumtaylor.model.Story;
 import net.callumtaylor.news.R;
-import net.callumtaylor.view.holder.NameHolder;
+import net.callumtaylor.view.holder.StoryHolder;
 
-public class NameAdapter extends BaseAdapter
+public class StoryAdapter extends BaseAdapter
 {
-	private String[] objects;
+	private Story[] objects;
 	private Context context;
 
-	public NameAdapter(Context context, String[] objects)
+	public StoryAdapter(Context context, Story[] objects)
 	{
 		this.context = context;
 		this.objects = objects;
@@ -26,37 +27,37 @@ public class NameAdapter extends BaseAdapter
 		return objects.length;
 	}
 
-	@Override public String getItem(int position)
+	@Override public Story getItem(int position)
 	{
 		return objects[position];
 	}
 
 	@Override public long getItemId(int position)
 	{
-		return objects[position].hashCode();
+		return objects[position].getId();
 	}
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
 	{
-		NameHolder holder;
+		StoryHolder holder;
 
 		if (convertView == null)
 		{
-			convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+			convertView = LayoutInflater.from(context).inflate(R.layout.story_item, parent, false);
 
-			holder = new NameHolder();
+			holder = new StoryHolder();
 			holder.name = (TextView)convertView.findViewById(R.id.name);
-			holder.position = (TextView)convertView.findViewById(R.id.position);
+			holder.summary = (TextView)convertView.findViewById(R.id.summary);
 
 			convertView.setTag(holder);
 		}
 		else
 		{
-			holder = (NameHolder)convertView.getTag();
+			holder = (StoryHolder)convertView.getTag();
 		}
 
-		holder.name.setText(getItem(position));
-		holder.position.setText(String.valueOf(position));
+		holder.name.setText(getItem(position).getTitle());
+		holder.summary.setText(getItem(position).getSummary());
 
 		return convertView;
 	}
