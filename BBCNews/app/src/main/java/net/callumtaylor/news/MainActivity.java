@@ -15,6 +15,9 @@ import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
 {
+	private StoryAdapter adapter;
+	private ListView list;
+
 	@Override protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -29,8 +32,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 			new Story(4, "Story 4", "This is a test story")
 		};
 
-		ListView list = (ListView)findViewById(R.id.list_view);
-		StoryAdapter adapter = new StoryAdapter(this, stories);
+		list = (ListView)findViewById(R.id.list_view);
+		adapter = new StoryAdapter(this, stories);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
@@ -38,6 +41,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
+		Story story = adapter.getItem(position);
+
 		Intent storyDetails = new Intent(this, StoryActivity.class);
 		startActivity(storyDetails);
 	}
