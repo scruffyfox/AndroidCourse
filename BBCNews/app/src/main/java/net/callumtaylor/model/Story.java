@@ -1,31 +1,16 @@
 package net.callumtaylor.model;
 
+import com.google.gson.JsonObject;
+
 import java.io.Serializable;
 
 public class Story implements Serializable
 {
-	private int id;
 	private String title;
 	private String summary;
 	private String link;
+	private String thumbnail;
 	private long published;
-
-	public Story(int id, String title, String summary)
-	{
-		this.id = id;
-		this.title = title;
-		this.summary = summary;
-	}
-
-	public int getId()
-	{
-		return id;
-	}
-
-	public void setId(int id)
-	{
-		this.id = id;
-	}
 
 	public String getTitle()
 	{
@@ -57,6 +42,16 @@ public class Story implements Serializable
 		this.link = link;
 	}
 
+	public String getThumbnail()
+	{
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail)
+	{
+		this.thumbnail = thumbnail;
+	}
+
 	public long getPublished()
 	{
 		return published;
@@ -65,5 +60,25 @@ public class Story implements Serializable
 	public void setPublished(long published)
 	{
 		this.published = published;
+	}
+
+	public Story createFrom(JsonObject story)
+	{
+		try
+		{
+			setTitle(story.get("title").getAsString());
+			setSummary(story.get("summary").getAsString());
+			setLink(story.get("link").getAsString());
+			setThumbnail(story.get("thumbnail").getAsString());
+			setPublished(story.get("published").getAsInt() * 1000L);
+
+			return this;
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }
