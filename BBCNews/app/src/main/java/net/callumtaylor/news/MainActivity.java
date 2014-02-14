@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import net.callumtaylor.controller.adapter.StoryAdapter;
+import net.callumtaylor.lib.manager.APIManager;
 import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
@@ -37,6 +38,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
+
+		APIManager.getInstance().getStories();
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
