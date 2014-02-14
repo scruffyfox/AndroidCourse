@@ -62,7 +62,7 @@ public class StoryAdapter extends BaseAdapter
 		}
 
 		holder.name.setText(getItem(position).getTitle());
-		holder.summary.setText(getItem(position).getSummary());
+		holder.summary.setText(getItem(position).getDescription());
 
 		return convertView;
 	}

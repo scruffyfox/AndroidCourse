@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Story implements Serializable
 {
 	private String title;
-	private String summary;
+	private String description;
 	private String link;
 	private String thumbnail;
 	private long published;
@@ -22,14 +22,14 @@ public class Story implements Serializable
 		this.title = title;
 	}
 
-	public String getSummary()
+	public String getDescription()
 	{
-		return summary;
+		return description;
 	}
 
-	public void setSummary(String summary)
+	public void setDescription(String description)
 	{
-		this.summary = summary;
+		this.description = description;
 	}
 
 	public String getLink()
@@ -67,7 +67,7 @@ public class Story implements Serializable
 		try
 		{
 			setTitle(story.get("title").getAsString());
-			setSummary(story.get("summary").getAsString());
+			setDescription(story.get("description").getAsString());
 			setLink(story.get("link").getAsString());
 			setThumbnail(story.get("thumbnail").getAsString());
 			setPublished(story.get("published").getAsInt() * 1000L);

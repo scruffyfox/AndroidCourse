@@ -3,13 +3,15 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import net.callumtaylor.asynchttp.response.JsonResponseHandler;
 import net.callumtaylor.controller.adapter.StoryAdapter;
@@ -35,9 +37,24 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
 		APIManager.getInstance().getStories(new JsonResponseHandler()
 		{
+			private Story[] stories;
+
 			@Override public void onSuccess()
 			{
-				Log.e("BBCNews", getContent().toString());
+				JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
+				stories = new Story[storiesArray.size()];
+
+				for (int index = 0; index < stories.length; index++)
+				{
+					JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
+					stories[index] = new Story().createFrom(storyObject);
+				}
+			}
+
+			@Override public void onFinish(boolean failed)
+			{
+				adapter.setObjects(stories);
+				adapter.notifyDataSetChanged();
 			}
 		});
 	}
