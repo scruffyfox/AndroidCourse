@@ -10,7 +10,12 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+import net.callumtaylor.asynchttp.response.JsonResponseHandler;
 import net.callumtaylor.controller.adapter.StoryAdapter;
+import net.callumtaylor.lib.manager.APIManager;
 import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
@@ -24,19 +29,34 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
 		setContentView(R.layout.main_view);
 
-		// simple adapter
-		Story[] stories = {
-			new Story(1, "Story 1", "This is a test story"),
-			new Story(2, "Story 2", "This is a test story"),
-			new Story(3, "Story 3", "This is a test story"),
-			new Story(4, "Story 4", "This is a test story")
-		};
-
 		list = (ListView)findViewById(R.id.list_view);
-		adapter = new StoryAdapter(this, stories);
+		adapter = new StoryAdapter(this);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
+
+		APIManager.getInstance().getStories(new JsonResponseHandler()
+		{
+			private Story[] stories;
+
+			@Override public void onSuccess()
+			{
+				JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
+				stories = new Story[storiesArray.size()];
+
+				for (int index = 0; index < stories.length; index++)
+				{
+					JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
+					stories[index] = new Story().createFrom(storyObject);
+				}
+			}
+
+			@Override public void onFinish(boolean failed)
+			{
+				adapter.setObjects(stories);
+				adapter.notifyDataSetChanged();
+			}
+		});
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
