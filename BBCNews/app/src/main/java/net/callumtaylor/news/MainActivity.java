@@ -3,6 +3,7 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -10,6 +11,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import net.callumtaylor.asynchttp.response.JsonResponseHandler;
 import net.callumtaylor.controller.adapter.StoryAdapter;
 import net.callumtaylor.lib.manager.APIManager;
 import net.callumtaylor.model.Story;
@@ -39,7 +41,13 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
 
-		APIManager.getInstance().getStories();
+		APIManager.getInstance().getStories(new JsonResponseHandler()
+		{
+			@Override public void onSuccess()
+			{
+				Log.e("BBCNews", getContent().toString());
+			}
+		});
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
