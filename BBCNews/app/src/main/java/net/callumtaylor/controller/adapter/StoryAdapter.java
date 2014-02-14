@@ -16,10 +16,15 @@ public class StoryAdapter extends BaseAdapter
 	private Story[] objects;
 	private Context context;
 
-	public StoryAdapter(Context context, Story[] objects)
+	public StoryAdapter(Context context)
 	{
 		this.context = context;
-		this.objects = objects;
+		objects = new Story[0];
+	}
+
+	public void setObjects(Story[] stories)
+	{
+		this.objects = stories;
 	}
 
 	@Override public int getCount()
@@ -34,7 +39,7 @@ public class StoryAdapter extends BaseAdapter
 
 	@Override public long getItemId(int position)
 	{
-		return objects[position].getId();
+		return ((Object)objects[position]).hashCode();
 	}
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)

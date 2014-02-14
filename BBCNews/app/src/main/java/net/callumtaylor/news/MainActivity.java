@@ -27,16 +27,8 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 
 		setContentView(R.layout.main_view);
 
-		// simple adapter
-		Story[] stories = {
-			new Story(1, "Story 1", "This is a test story"),
-			new Story(2, "Story 2", "This is a test story"),
-			new Story(3, "Story 3", "This is a test story"),
-			new Story(4, "Story 4", "This is a test story")
-		};
-
 		list = (ListView)findViewById(R.id.list_view);
-		adapter = new StoryAdapter(this, stories);
+		adapter = new StoryAdapter(this);
 		list.setAdapter(adapter);
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
