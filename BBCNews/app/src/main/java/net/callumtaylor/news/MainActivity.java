@@ -3,6 +3,7 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -16,6 +17,7 @@ import com.google.gson.JsonObject;
 import net.callumtaylor.asynchttp.response.JsonResponseHandler;
 import net.callumtaylor.controller.adapter.StoryAdapter;
 import net.callumtaylor.lib.manager.APIManager;
+import net.callumtaylor.lib.manager.CacheManager;
 import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
@@ -49,6 +51,9 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 					JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
 					stories[index] = new Story().createFrom(storyObject);
 				}
+
+				CacheManager.getInstance().save(getFilesDir().getAbsolutePath() + "/stories", stories);
+				Log.e("BBC", "File exists? " + CacheManager.getInstance().fileExists(getFilesDir().getAbsolutePath() + "/stories"));
 			}
 
 			@Override public void onFinish(boolean failed)
