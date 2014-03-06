@@ -37,13 +37,16 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
 
+		long lastModified = System.currentTimeMillis();
 		if (CacheManager.getInstance().fileExists(getFilesDir().getAbsolutePath() + "/stories"))
 		{
+			lastModified = CacheManager.getInstance().fileModifiedDate(getFilesDir().getAbsolutePath() + "/stories");
 			Story[] stories = (Story[])CacheManager.getInstance().load(getFilesDir().getAbsolutePath() + "/stories");
 			adapter.setObjects(stories);
 			adapter.notifyDataSetChanged();
 		}
-		else
+
+		if (System.currentTimeMillis() - lastModified > 60 * 1 * 1000)
 		{
 			APIManager.getInstance().getStories(new JsonResponseHandler()
 			{
