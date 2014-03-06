@@ -3,6 +3,7 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -16,6 +17,7 @@ import com.google.gson.JsonObject;
 import net.callumtaylor.asynchttp.response.JsonResponseHandler;
 import net.callumtaylor.controller.adapter.StoryAdapter;
 import net.callumtaylor.lib.manager.APIManager;
+import net.callumtaylor.lib.manager.CacheManager;
 import net.callumtaylor.model.Story;
 
 public class MainActivity extends Activity implements OnItemClickListener, OnItemLongClickListener
@@ -35,28 +37,42 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
 
-		APIManager.getInstance().getStories(new JsonResponseHandler()
+		long lastModified = System.currentTimeMillis();
+		if (CacheManager.getInstance().fileExists(getFilesDir().getAbsolutePath() + "/stories"))
 		{
-			private Story[] stories;
+			lastModified = CacheManager.getInstance().fileModifiedDate(getFilesDir().getAbsolutePath() + "/stories");
+			Story[] stories = (Story[])CacheManager.getInstance().load(getFilesDir().getAbsolutePath() + "/stories");
+			adapter.setObjects(stories);
+			adapter.notifyDataSetChanged();
+		}
 
-			@Override public void onSuccess()
+		if (System.currentTimeMillis() - lastModified > 60 * 1 * 1000)
+		{
+			APIManager.getInstance().getStories(new JsonResponseHandler()
 			{
-				JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
-				stories = new Story[storiesArray.size()];
+				private Story[] stories;
 
-				for (int index = 0; index < stories.length; index++)
+				@Override public void onSuccess()
 				{
-					JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
-					stories[index] = new Story().createFrom(storyObject);
-				}
-			}
+					JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
+					stories = new Story[storiesArray.size()];
 
-			@Override public void onFinish(boolean failed)
-			{
-				adapter.setObjects(stories);
-				adapter.notifyDataSetChanged();
-			}
-		});
+					for (int index = 0; index < stories.length; index++)
+					{
+						JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
+						stories[index] = new Story().createFrom(storyObject);
+					}
+
+					CacheManager.getInstance().save(getFilesDir().getAbsolutePath() + "/stories", stories);
+				}
+
+				@Override public void onFinish(boolean failed)
+				{
+					adapter.setObjects(stories);
+					adapter.notifyDataSetChanged();
+				}
+			});
+		}
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
