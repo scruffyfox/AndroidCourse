@@ -37,31 +37,39 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 		list.setOnItemClickListener(this);
 		list.setOnItemLongClickListener(this);
 
-		APIManager.getInstance().getStories(new JsonResponseHandler()
+		if (CacheManager.getInstance().fileExists(getFilesDir().getAbsolutePath() + "/stories"))
 		{
-			private Story[] stories;
-
-			@Override public void onSuccess()
+			Story[] stories = (Story[])CacheManager.getInstance().load(getFilesDir().getAbsolutePath() + "/stories");
+			adapter.setObjects(stories);
+			adapter.notifyDataSetChanged();
+		}
+		else
+		{
+			APIManager.getInstance().getStories(new JsonResponseHandler()
 			{
-				JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
-				stories = new Story[storiesArray.size()];
+				private Story[] stories;
 
-				for (int index = 0; index < stories.length; index++)
+				@Override public void onSuccess()
 				{
-					JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
-					stories[index] = new Story().createFrom(storyObject);
+					JsonArray storiesArray = getContent().getAsJsonObject().get("stories").getAsJsonArray();
+					stories = new Story[storiesArray.size()];
+
+					for (int index = 0; index < stories.length; index++)
+					{
+						JsonObject storyObject = storiesArray.get(index).getAsJsonObject();
+						stories[index] = new Story().createFrom(storyObject);
+					}
+
+					CacheManager.getInstance().save(getFilesDir().getAbsolutePath() + "/stories", stories);
 				}
 
-				CacheManager.getInstance().save(getFilesDir().getAbsolutePath() + "/stories", stories);
-				Log.e("BBC", "File exists? " + CacheManager.getInstance().fileExists(getFilesDir().getAbsolutePath() + "/stories"));
-			}
-
-			@Override public void onFinish(boolean failed)
-			{
-				adapter.setObjects(stories);
-				adapter.notifyDataSetChanged();
-			}
-		});
+				@Override public void onFinish(boolean failed)
+				{
+					adapter.setObjects(stories);
+					adapter.notifyDataSetChanged();
+				}
+			});
+		}
 	}
 
 	@Override public void onItemClick(AdapterView<?> parent, View view, int position, long id)
