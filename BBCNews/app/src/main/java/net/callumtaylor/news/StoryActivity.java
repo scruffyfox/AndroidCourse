@@ -19,6 +19,7 @@ public class StoryActivity extends Activity
 			Story story = (Story)getIntent().getExtras().get("story");
 
 			WebView webview = (WebView)findViewById(R.id.web_view);
+			webview.loadUrl(story.getLink());
 		}
 	}
 }
