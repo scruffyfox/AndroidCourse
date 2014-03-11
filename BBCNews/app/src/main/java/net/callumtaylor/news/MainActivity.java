@@ -3,7 +3,6 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -46,7 +45,7 @@ public class MainActivity extends Activity implements OnItemClickListener, OnIte
 			adapter.notifyDataSetChanged();
 		}
 
-		if (System.currentTimeMillis() - lastModified > 60 * 1 * 1000)
+		if (System.currentTimeMillis() - lastModified < 60 * 1 * 1000)
 		{
 			APIManager.getInstance().getStories(new JsonResponseHandler()
 			{
