@@ -2,7 +2,7 @@ package net.callumtaylor.news;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.webkit.WebView;
 
 import net.callumtaylor.model.Story;
 
@@ -18,10 +18,7 @@ public class StoryActivity extends Activity
 		{
 			Story story = (Story)getIntent().getExtras().get("story");
 
-			TextView title = (TextView)findViewById(R.id.title);
-			TextView summary = (TextView)findViewById(R.id.summary);
-			title.setText(story.getTitle());
-			summary.setText(story.getDescription());
+			WebView webview = (WebView)findViewById(R.id.web_view);
 		}
 	}
 }
