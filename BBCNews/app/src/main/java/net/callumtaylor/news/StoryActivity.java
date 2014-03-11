@@ -20,7 +20,6 @@ public class StoryActivity extends Activity
 			Story story = (Story)getIntent().getExtras().get("story");
 
 			WebView webview = (WebView)findViewById(R.id.web_view);
-			webview.loadUrl(story.getLink());
 			webview.getSettings().setJavaScriptEnabled(true);
 			webview.setWebViewClient(new WebViewClient()
 			{
@@ -29,7 +28,15 @@ public class StoryActivity extends Activity
 					view.loadUrl(url);
 					return true;
 				}
+
+				@Override public void onPageFinished(WebView view, String url)
+				{
+					super.onPageFinished(view, url);
+					view.loadUrl("javascript:document.getElementById('orb-banner').style.display = 'none'; document.getElementsByClassName('site-brand')[0].style.display = 'none'; document.getElementsByClassName('secondary-navigation')[0].style.display = 'none';");
+				}
 			});
+
+			webview.loadUrl(story.getLink());
 		}
 	}
 }
