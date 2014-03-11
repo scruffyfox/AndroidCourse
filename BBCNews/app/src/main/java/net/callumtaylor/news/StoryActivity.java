@@ -20,6 +20,7 @@ public class StoryActivity extends Activity
 
 			WebView webview = (WebView)findViewById(R.id.web_view);
 			webview.loadUrl(story.getLink());
+			webview.getSettings().setJavaScriptEnabled(true);
 		}
 	}
 }
