@@ -3,6 +3,7 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import net.callumtaylor.model.Story;
 
@@ -21,6 +22,14 @@ public class StoryActivity extends Activity
 			WebView webview = (WebView)findViewById(R.id.web_view);
 			webview.loadUrl(story.getLink());
 			webview.getSettings().setJavaScriptEnabled(true);
+			webview.setWebViewClient(new WebViewClient()
+			{
+				@Override public boolean shouldOverrideUrlLoading(WebView view, String url)
+				{
+					view.loadUrl(url);
+					return true;
+				}
+			});
 		}
 	}
 }
