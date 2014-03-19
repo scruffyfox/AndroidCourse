@@ -1,5 +1,7 @@
 #Android Course by Callum Taylor
 
+[twitter](http://twitter.com/scruffyfox), [app.net](http://alpha.app.net/scruffyfox), [github](http://github.com/scruffyfox), [website](http://callumtaylor.net)
+
 ##Lesson 1:
 
 - Video: http://www.youtube.com/watch?v=frewtKaV00Q
@@ -14,3 +16,11 @@
 - Swim: https://play.google.com/store/apps/details?id=com.cube.arc.lts
 - Boots eye test: https://play.google.com/store/apps/details?id=com.cube.bec
 - Robin for App.net: https://play.google.com/store/apps/details?id=in.rob.client
+
+##Lesson 2:
+
+- Video: https://www.youtube.com/watch?v=_ULMKJcMUG8
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson2
+- Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson2-notes.pdf
+- Genymotion: http://genymotion.com
