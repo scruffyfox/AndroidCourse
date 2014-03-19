@@ -1,5 +1,7 @@
 #Android Course by Callum Taylor
 
+[twitter](http://twitter.com/scruffyfox), [app.net](http://alpha.app.net/scruffyfox), [github](http://github.com/scruffyfox), [website](http://callumtaylor.net)
+
 ##Lesson 1:
 
 - Video: http://www.youtube.com/watch?v=frewtKaV00Q
