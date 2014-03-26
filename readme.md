@@ -24,3 +24,11 @@
 - Slides: http://www.slideshare.net/scruffyfox/android-course-lesson2
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson2-notes.pdf
 - Genymotion: http://genymotion.com
+
+##Lesson 3
+
+- Video: https://www.youtube.com/watch?v=tuve_G2LZPo
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson3
+- Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson3-notes.pdf
+- Genymotion: http://genymotion.com
