@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/menu_readability_on"
+		android:title="Turn Readability on"
+	/>
+
+	<item
+		android:id="@+id/menu_readability_off"
+		android:title="Turn Readability off"
+		android:visible="false"
+	/>
+</menu>
