@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import net.callumtaylor.asynchttp.AsyncHttpClient;
+import net.callumtaylor.asynchttp.response.BitmapResponseHandler;
 import net.callumtaylor.model.Story;
 import net.callumtaylor.news.R;
 import net.callumtaylor.view.holder.StoryHolder;
@@ -45,7 +47,7 @@ public class StoryAdapter extends BaseAdapter
 
 	@Override public View getView(int position, View convertView, ViewGroup parent)
 	{
-		StoryHolder holder;
+		final StoryHolder holder;
 
 		if (convertView == null)
 		{
@@ -63,6 +65,19 @@ public class StoryAdapter extends BaseAdapter
 			holder = (StoryHolder)convertView.getTag();
 		}
 
+		new AsyncHttpClient(getItem(position).getThumbnail()).get(new BitmapResponseHandler()
+		{
+			@Override public void onSuccess(){}
+
+			@Override public void onFinish(boolean failed)
+			{
+				if (!failed)
+				{
+					holder.thumbnail.setImageBitmap(getContent());
+				}
+			}
+		});
+		
 		holder.name.setText(getItem(position).getTitle());
 		holder.summary.setText(getItem(position).getDescription());
 
