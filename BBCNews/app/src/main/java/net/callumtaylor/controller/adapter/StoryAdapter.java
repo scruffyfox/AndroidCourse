@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.callumtaylor.model.Story;
@@ -51,6 +52,7 @@ public class StoryAdapter extends BaseAdapter
 			convertView = LayoutInflater.from(context).inflate(R.layout.story_item, parent, false);
 
 			holder = new StoryHolder();
+			holder.thumbnail = (ImageView)convertView.findViewById(R.id.thumbnail);
 			holder.name = (TextView)convertView.findViewById(R.id.name);
 			holder.summary = (TextView)convertView.findViewById(R.id.summary);
 
