@@ -73,6 +73,9 @@ public class StoryActivity extends Activity
 			reloadPage();
 			invalidateOptionsMenu();
 
+			SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+			preferences.edit().putBoolean("readability", isReadabilityOn).apply();
+
 			return true;
 		}
 
