@@ -2,6 +2,7 @@ package net.callumtaylor.news;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -38,5 +39,11 @@ public class StoryActivity extends Activity
 
 			webview.loadUrl(story.getLink());
 		}
+	}
+
+	@Override public boolean onCreateOptionsMenu(Menu menu)
+	{
+		getMenuInflater().inflate(R.menu.menu_story, menu);
+		return true;
 	}
 }
