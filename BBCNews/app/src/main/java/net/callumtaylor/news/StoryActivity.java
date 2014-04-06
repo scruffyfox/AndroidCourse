@@ -43,6 +43,18 @@ public class StoryActivity extends Activity
 				}
 			});
 
+			reloadPage();
+		}
+	}
+
+	public void reloadPage()
+	{
+		if (isReadabilityOn)
+		{
+			webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
+		}
+		else
+		{
 			webview.loadUrl(story.getLink());
 		}
 	}
@@ -53,15 +65,7 @@ public class StoryActivity extends Activity
 		{
 			isReadabilityOn = !isReadabilityOn;
 
-			if (isReadabilityOn)
-			{
-				webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
-			}
-			else
-			{
-				webview.loadUrl(story.getLink());
-			}
-
+			reloadPage();
 			invalidateOptionsMenu();
 
 			return true;
