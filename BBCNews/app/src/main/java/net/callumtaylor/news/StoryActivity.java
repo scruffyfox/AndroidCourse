@@ -39,7 +39,7 @@ public class StoryActivity extends Activity
 				@Override public void onPageFinished(WebView view, String url)
 				{
 					super.onPageFinished(view, url);
-					view.loadUrl("javascript:document.getElementById('orb-banner').style.display = 'none'; document.getElementsByClassName('site-brand')[0].style.display = 'none'; document.getElementsByClassName('secondary-navigation')[0].style.display = 'none';");
+//					view.loadUrl("javascript:document.getElementById('orb-banner').style.display = 'none'; document.getElementsByClassName('site-brand')[0].style.display = 'none'; document.getElementsByClassName('secondary-navigation')[0].style.display = 'none';");
 				}
 			});
 
@@ -63,7 +63,7 @@ public class StoryActivity extends Activity
 			}
 
 			invalidateOptionsMenu();
-			
+
 			return true;
 		}
 
