@@ -49,7 +49,7 @@ public class StoryActivity extends Activity
 
 	@Override public boolean onOptionsItemSelected(MenuItem item)
 	{
-		if (item.getItemId() == R.id.menu_toggle_readability)
+		if (item.getItemId() == R.id.menu_readability_on || item.getItemId() == R.id.menu_readability_off)
 		{
 			isReadabilityOn = !isReadabilityOn;
 
@@ -62,6 +62,8 @@ public class StoryActivity extends Activity
 				webview.loadUrl(story.getLink());
 			}
 
+			invalidateOptionsMenu();
+			
 			return true;
 		}
 
@@ -71,6 +73,18 @@ public class StoryActivity extends Activity
 	@Override public boolean onCreateOptionsMenu(Menu menu)
 	{
 		getMenuInflater().inflate(R.menu.menu_story, menu);
+
+		if (isReadabilityOn)
+		{
+			menu.findItem(R.id.menu_readability_on).setVisible(false);
+			menu.findItem(R.id.menu_readability_off).setVisible(true);
+		}
+		else
+		{
+			menu.findItem(R.id.menu_readability_on).setVisible(true);
+			menu.findItem(R.id.menu_readability_off).setVisible(false);
+		}
+
 		return true;
 	}
 }
