@@ -1,6 +1,8 @@
 package net.callumtaylor.news;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +26,9 @@ public class StoryActivity extends Activity
 
 		if (getIntent().getExtras() != null)
 		{
+			SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+			isReadabilityOn = preferences.getBoolean("readability", false);
+
 			story = (Story)getIntent().getExtras().get("story");
 
 			webview = (WebView)findViewById(R.id.web_view);
@@ -43,6 +48,18 @@ public class StoryActivity extends Activity
 				}
 			});
 
+			reloadPage();
+		}
+	}
+
+	public void reloadPage()
+	{
+		if (isReadabilityOn)
+		{
+			webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
+		}
+		else
+		{
 			webview.loadUrl(story.getLink());
 		}
 	}
@@ -53,16 +70,11 @@ public class StoryActivity extends Activity
 		{
 			isReadabilityOn = !isReadabilityOn;
 
-			if (isReadabilityOn)
-			{
-				webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
-			}
-			else
-			{
-				webview.loadUrl(story.getLink());
-			}
-
+			reloadPage();
 			invalidateOptionsMenu();
+
+			SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+			preferences.edit().putBoolean("readability", isReadabilityOn).apply();
 
 			return true;
 		}
