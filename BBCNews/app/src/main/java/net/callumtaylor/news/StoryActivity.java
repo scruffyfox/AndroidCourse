@@ -11,6 +11,9 @@ import net.callumtaylor.model.Story;
 
 public class StoryActivity extends Activity
 {
+	private WebView webview;
+	private Story story;
+
 	@Override protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
@@ -19,9 +22,9 @@ public class StoryActivity extends Activity
 
 		if (getIntent().getExtras() != null)
 		{
-			Story story = (Story)getIntent().getExtras().get("story");
+			story = (Story)getIntent().getExtras().get("story");
 
-			WebView webview = (WebView)findViewById(R.id.web_view);
+			webview = (WebView)findViewById(R.id.web_view);
 			webview.getSettings().setJavaScriptEnabled(true);
 			webview.setWebViewClient(new WebViewClient()
 			{
