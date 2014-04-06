@@ -66,7 +66,14 @@ public class StoryAdapter extends BaseAdapter
 		}
 
 		holder.thumbnail.setImageBitmap(null);
-		new AsyncHttpClient(getItem(position).getThumbnail()).get(new BitmapResponseHandler()
+
+		if (holder.thumbnail.getTag() != null)
+		{
+			((AsyncHttpClient)holder.thumbnail.getTag()).cancel();
+		}
+
+		AsyncHttpClient loader = new AsyncHttpClient(getItem(position).getThumbnail());
+		loader.get(new BitmapResponseHandler()
 		{
 			@Override public void onSuccess(){}
 
@@ -74,10 +81,12 @@ public class StoryAdapter extends BaseAdapter
 			{
 				if (!failed)
 				{
+					holder.thumbnail.setTag(null);
 					holder.thumbnail.setImageBitmap(getContent());
 				}
 			}
 		});
+		holder.thumbnail.setTag(loader);
 
 		holder.name.setText(getItem(position).getTitle());
 		holder.summary.setText(getItem(position).getDescription());
