@@ -65,6 +65,7 @@ public class StoryAdapter extends BaseAdapter
 			holder = (StoryHolder)convertView.getTag();
 		}
 
+		holder.thumbnail.setImageBitmap(null);
 		new AsyncHttpClient(getItem(position).getThumbnail()).get(new BitmapResponseHandler()
 		{
 			@Override public void onSuccess(){}
@@ -77,7 +78,7 @@ public class StoryAdapter extends BaseAdapter
 				}
 			}
 		});
-		
+
 		holder.name.setText(getItem(position).getTitle());
 		holder.summary.setText(getItem(position).getDescription());
 
