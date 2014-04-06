@@ -1,6 +1,8 @@
 package net.callumtaylor.news;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,6 +26,9 @@ public class StoryActivity extends Activity
 
 		if (getIntent().getExtras() != null)
 		{
+			SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+			isReadabilityOn = preferences.getBoolean("readability", false);
+
 			story = (Story)getIntent().getExtras().get("story");
 
 			webview = (WebView)findViewById(R.id.web_view);
