@@ -1,6 +1,7 @@
 package net.callumtaylor.news;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ public class StoryActivity extends Activity
 {
 	private WebView webview;
 	private Story story;
+	private boolean isReadabilityOn = false;
 
 	@Override protected void onCreate(Bundle savedInstanceState)
 	{
@@ -49,6 +51,17 @@ public class StoryActivity extends Activity
 	{
 		if (item.getItemId() == R.id.menu_toggle_readability)
 		{
+			isReadabilityOn = !isReadabilityOn;
+
+			if (isReadabilityOn)
+			{
+				webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
+			}
+			else
+			{
+				webview.loadUrl(story.getLink());
+			}
+
 			return true;
 		}
 
