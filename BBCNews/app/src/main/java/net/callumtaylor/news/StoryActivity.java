@@ -3,6 +3,7 @@ package net.callumtaylor.news;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -39,6 +40,16 @@ public class StoryActivity extends Activity
 
 			webview.loadUrl(story.getLink());
 		}
+	}
+
+	@Override public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if (item.getItemId() == R.id.menu_toggle_readability)
+		{
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override public boolean onCreateOptionsMenu(Menu menu)
