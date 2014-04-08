@@ -32,3 +32,15 @@
 - Slides: http://www.slideshare.net/scruffyfox/android-course-lesson3
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson3-notes.pdf
 - Genymotion: http://genymotion.com
+
+##Lesson 4
+
+- Video: https://www.youtube.com/watch?v=TYPU7UWWUiI
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
+- API: http://android.3sidedcube.com/bbcnews/
+- Genymotion: http://genymotion.com
+
+###Other useful links
+
+- Better serialisation: http://blog.callumtaylor.net/serialisationjava-android
