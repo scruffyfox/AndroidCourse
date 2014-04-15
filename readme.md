@@ -44,3 +44,18 @@
 ###Other useful links
 
 - Better serialisation: http://blog.callumtaylor.net/serialisationjava-android
+
+##Lesson 5
+
+- Video: https://www.youtube.com/watch?v=FMQxfprFbZs
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
+- API: http://android.3sidedcube.com/bbcnews/
+- Genymotion: http://genymotion.com
+- This way up: https://speakerdeck.com/jgilfelt/this-way-up-implementing-effective-navigation-on-android
+
+###Libraries
+
+- Universal Image Loader: https://github.com/nostra13/Android-Universal-Image-Loader
+- Instapaper: http://instapaper.com/text?u=[url]
+
