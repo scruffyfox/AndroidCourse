@@ -24,3 +24,38 @@
 - Slides: http://www.slideshare.net/scruffyfox/android-course-lesson2
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson2-notes.pdf
 - Genymotion: http://genymotion.com
+
+##Lesson 3
+
+- Video: https://www.youtube.com/watch?v=tuve_G2LZPo
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson3
+- Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson3-notes.pdf
+- Genymotion: http://genymotion.com
+
+##Lesson 4
+
+- Video: https://www.youtube.com/watch?v=TYPU7UWWUiI
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
+- API: http://android.3sidedcube.com/bbcnews/
+- Genymotion: http://genymotion.com
+
+###Other useful links
+
+- Better serialisation: http://blog.callumtaylor.net/serialisationjava-android
+
+##Lesson 5
+
+- Video: https://www.youtube.com/watch?v=FMQxfprFbZs
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
+- API: http://android.3sidedcube.com/bbcnews/
+- Genymotion: http://genymotion.com
+- This way up: https://speakerdeck.com/jgilfelt/this-way-up-implementing-effective-navigation-on-android
+
+###Libraries
+
+- Universal Image Loader: https://github.com/nostra13/Android-Universal-Image-Loader
+- Instapaper: http://instapaper.com/text?u=[url]
+
