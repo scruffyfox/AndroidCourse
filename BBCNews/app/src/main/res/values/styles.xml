@@ -11,4 +11,11 @@
 	<style name="ActionBarText">
 		<item name="android:textColor">#ffffffff</item>
 	</style>
+
+	<style name="TextTitle">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+	</style>
 </resources>
