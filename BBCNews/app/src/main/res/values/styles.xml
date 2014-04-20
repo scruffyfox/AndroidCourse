@@ -1,6 +1,12 @@
 <resources>
 	<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
 		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="title_style">@style/TextTitle</item>
+	</style>
+
+	<style name="AppTheme2" parent="android:Theme.Holo.Light.DarkActionBar">
+		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="title_style">@style/TextTitleTest</item>
 	</style>
 
 	<style name="ActionBar" parent="android:Widget.ActionBar">
@@ -14,6 +20,13 @@
 
 	<style name="TextTitle">
 		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+
+	<style name="TextTitleTest">
+		<item name="android:textColor">#ffcc0000</item>
+		<item name="android:fontFamily">sans-serif-light</item>
 		<item name="android:textSize">18dp</item>
 		<item name="android:layout_gravity">center_vertical</item>
 	</style>
