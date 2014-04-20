@@ -1,6 +1,7 @@
 <resources>
 	<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
 		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="title_style">@style/TextTitle</item>
 	</style>
 
 	<style name="ActionBar" parent="android:Widget.ActionBar">
