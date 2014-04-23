@@ -1,0 +1,55 @@
+[
+    {
+        "id": "headlines",
+        "title": "Headlines"
+    },
+    {
+        "id": "world",
+        "title": "World"
+    },
+    {
+        "id": "science_and_environment",
+        "title": "Science"
+    },
+    {
+        "id": "technology",
+        "title": "Technology"
+    },
+    {
+        "id": "entertainment_and_arts",
+        "title": "Entertainment"
+    },
+    {
+        "id": "business",
+        "title": "Business"
+    },
+    {
+        "id": "politics",
+        "title": "Politics"
+    },
+    {
+        "id": "health",
+        "title": "Health"
+    },
+    {
+        "id": "education",
+        "title": "Education"
+    },
+    {
+        "id": "uk",
+        "title": "UK"
+    },
+    {
+        "id": "england",
+        "title": "England"
+    },
+    {
+        "id": "scotland",
+        "title": "Scotland"
+    },
+    {
+        "id": "wales",
+        "title": "Wales"
+    }
+
+]
