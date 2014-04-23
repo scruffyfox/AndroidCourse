@@ -1,8 +1,37 @@
 <resources>
+	<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="title_style">@style/TextTitle</item>
+	</style>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
+	<style name="AppTheme2" parent="android:Theme.Holo.Light.DarkActionBar">
+		<item name="android:actionBarStyle">@style/ActionBar</item>
+		<item name="title_style">@style/TextTitleTest</item>
+	</style>
 
+	<style name="ActionBar" parent="android:Widget.ActionBar">
+		<item name="android:background">#ffcc0000</item>
+		<item name="android:titleTextStyle">@style/ActionBarText</item>
+	</style>
+
+	<style name="ActionBarText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+		<item name="android:textColor">#ffffffff</item>
+	</style>
+
+	<style name="TextTitle">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+
+	<style name="TextTitleTest">
+		<item name="android:textColor">#ffcc0000</item>
+		<item name="android:fontFamily">sans-serif-light</item>
+		<item name="android:textSize">18dp</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+
+	<style name="Thumbnail">
+		<item name="android:scaleType">centerCrop</item>
+	</style>
 </resources>
