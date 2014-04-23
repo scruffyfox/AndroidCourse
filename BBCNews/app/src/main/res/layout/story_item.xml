@@ -4,24 +4,23 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:orientation="vertical"
-	android:padding="20dp"
 >
 	<ImageView
 		android:layout_width="100dp"
 		android:layout_height="100dp"
 		android:id="@+id/thumbnail"
 		android:layout_marginRight="8dp"
+		style="@style/Thumbnail"
 	/>
 
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/name"
-		android:textStyle="bold"
-		android:textSize="18dp"
-		android:layout_gravity="center_vertical"
 		android:layout_toRightOf="@id/thumbnail"
+		android:layout_marginTop="4dp"
+		android:layout_marginRight="8dp"
+		style="?attr/title_style"
 	/>
 
 	<TextView
@@ -29,6 +28,8 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/summary"
 		android:layout_marginTop="4dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginBottom="8dp"
 		android:layout_toRightOf="@id/thumbnail"
 		android:layout_below="@id/name"
 	/>
