@@ -37,6 +37,7 @@
 
 - Video: https://www.youtube.com/watch?v=TYPU7UWWUiI
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson4
 - AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
 - API: http://android.3sidedcube.com/bbcnews/
 - Genymotion: http://genymotion.com
@@ -49,6 +50,7 @@
 
 - Video: https://www.youtube.com/watch?v=FMQxfprFbZs
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson5
 - AsyncHttpClient: https://github.com/scruffyfox/AsyncHttpClient
 - API: http://android.3sidedcube.com/bbcnews/
 - Genymotion: http://genymotion.com
@@ -58,4 +60,16 @@
 
 - Universal Image Loader: https://github.com/nostra13/Android-Universal-Image-Loader
 - Instapaper: http://instapaper.com/text?u=[url]
+
+##Lesson 6
+
+- Video: https://www.youtube.com/watch?v=YOr1fFuylQM
+- Full project/lessons: https://github.com/scruffyfox/AndroidCourse
+- Slides: http://www.slideshare.net/scruffyfox/android-course-lesson6
+- Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson6-notes.pdf
+- Genymotion: http://genymotion.com
+
+###Utilities
+
+- Android asset studio - http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html
 
