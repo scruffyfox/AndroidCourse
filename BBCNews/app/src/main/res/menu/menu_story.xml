@@ -2,13 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item
-		android:id="@+id/menu_readability_on"
-		android:title="Turn Readability on"
-	/>
-
-	<item
-		android:id="@+id/menu_readability_off"
-		android:title="Turn Readability off"
-		android:visible="false"
+		android:id="@+id/menu_toggle_readability"
+		android:title="Readability mode"
+		android:checkable="true"
 	/>
 </menu>
