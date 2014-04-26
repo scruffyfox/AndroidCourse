@@ -22,6 +22,7 @@ public class StoryActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.story_view);
 
 		if (getIntent().getExtras() != null)
@@ -64,39 +65,44 @@ public class StoryActivity extends Activity
 		}
 	}
 
-	@Override public boolean onOptionsItemSelected(MenuItem item)
+	public void reload()
 	{
-		if (item.getItemId() == R.id.menu_readability_on || item.getItemId() == R.id.menu_readability_off)
+		if (isReadabilityOn)
 		{
-			isReadabilityOn = !isReadabilityOn;
-
-			reloadPage();
-			invalidateOptionsMenu();
-
-			SharedPreferences preferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-			preferences.edit().putBoolean("readability", isReadabilityOn).apply();
-
-			return true;
+			webview.loadUrl("http://www.instapaper.com/text?u=" + Uri.encode(story.getLink()));
 		}
-
-		return super.onOptionsItemSelected(item);
+		else
+		{
+			webview.loadUrl(story.getLink());
+		}
 	}
 
 	@Override public boolean onCreateOptionsMenu(Menu menu)
 	{
-		getMenuInflater().inflate(R.menu.menu_story, menu);
-
-		if (isReadabilityOn)
-		{
-			menu.findItem(R.id.menu_readability_on).setVisible(false);
-			menu.findItem(R.id.menu_readability_off).setVisible(true);
-		}
-		else
-		{
-			menu.findItem(R.id.menu_readability_on).setVisible(true);
-			menu.findItem(R.id.menu_readability_off).setVisible(false);
-		}
+		getMenuInflater().inflate(R.menu.story_menu, menu);
+		menu.findItem(R.id.menu_toggle_readability).setChecked(isReadabilityOn);
 
 		return true;
+	}
+
+	@Override public boolean onOptionsItemSelected(MenuItem item)
+	{
+		if (item.getItemId() == R.id.menu_toggle_readability)
+		{
+			isReadabilityOn = !isReadabilityOn;
+			prefs.edit().putBoolean("readability", isReadabilityOn).apply();
+			item.setChecked(isReadabilityOn);
+
+			reload();
+
+			return true;
+		}
+		else if (item.getItemId() == android.R.id.home)
+		{
+			finish();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 }
