@@ -1,8 +1,8 @@
-#Android Course by Callum Taylor
+# Android Course by Callum Taylor
 
 [twitter](http://twitter.com/scruffyfox), [app.net](http://alpha.app.net/scruffyfox), [github](http://github.com/scruffyfox), [website](http://callumtaylor.net)
 
-##Lesson 1:
+## Lesson 1:
 
 - Video: http://www.youtube.com/watch?v=frewtKaV00Q
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -17,7 +17,7 @@
 - Boots eye test: https://play.google.com/store/apps/details?id=com.cube.bec
 - Robin for App.net: https://play.google.com/store/apps/details?id=in.rob.client
 
-##Lesson 2:
+## Lesson 2:
 
 - Video: https://www.youtube.com/watch?v=_ULMKJcMUG8
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -25,7 +25,7 @@
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson2-notes.pdf
 - Genymotion: http://genymotion.com
 
-##Lesson 3
+## Lesson 3
 
 - Video: https://www.youtube.com/watch?v=tuve_G2LZPo
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -33,7 +33,7 @@
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson3-notes.pdf
 - Genymotion: http://genymotion.com
 
-##Lesson 4
+## Lesson 4
 
 - Video: https://www.youtube.com/watch?v=TYPU7UWWUiI
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -42,11 +42,11 @@
 - API: http://android.3sidedcube.com/bbcnews/
 - Genymotion: http://genymotion.com
 
-###Other useful links
+### Other useful links
 
 - Better serialisation: http://blog.callumtaylor.net/serialisationjava-android
 
-##Lesson 5
+## Lesson 5
 
 - Video: https://www.youtube.com/watch?v=FMQxfprFbZs
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -56,12 +56,12 @@
 - Genymotion: http://genymotion.com
 - This way up: https://speakerdeck.com/jgilfelt/this-way-up-implementing-effective-navigation-on-android
 
-###Libraries
+### Libraries
 
 - Universal Image Loader: https://github.com/nostra13/Android-Universal-Image-Loader
 - Instapaper: http://instapaper.com/text?u=[url]
 
-##Lesson 6
+## Lesson 6
 
 - Video: https://www.youtube.com/watch?v=YOr1fFuylQM
 - Full project/lessons: https://github.com/scruffyfox/AndroidCourse
@@ -69,7 +69,7 @@
 - Speaker notes: https://github.com/scruffyfox/AndroidCourse/blob/master/pdf/Lesson6-notes.pdf
 - Genymotion: http://genymotion.com
 
-###Utilities
+### Utilities
 
 - Android asset studio - http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html
 
